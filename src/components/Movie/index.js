@@ -1,24 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Card, Icon, Button } from 'antd';
-import * as Api from '../../api';
 
 export function Movie({
   imdbID,
   isFetching,
   isFavourite,
   Title,
+  Type,
   Year,
   Genre,
   Poster,
-  fetchMovie,
   onToggleFavourite
 }) {
-  useEffect(() => {
-    if (!Title) {
-      fetchMovie(imdbID);
-    }
-  });
-
   const handleAddFavourite = evt => {
     evt.preventDefault();
     onToggleFavourite(imdbID);
@@ -46,6 +39,7 @@ export function Movie({
           style={{ width: 500 }}
           cover={<img alt="poster" src={Poster} />}
         >
+          <p>Type: {Type}</p>
           <p>Year: {Year}</p>
           <p>Genre: {Genre}</p>
         </Card>

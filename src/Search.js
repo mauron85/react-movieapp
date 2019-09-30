@@ -38,7 +38,7 @@ function Search({ isFetching, searchText, errorMessage, onSearch, onTextChange }
         <Link to="/favourites">Go to your favourites</Link>
         <div className="results">
           {errorMessage}
-          {isFetching ? <span>Fetching movies...</span> : <MovieList />}
+          <MovieList />
         </div>
       </div>
     </div>

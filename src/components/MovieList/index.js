@@ -2,11 +2,12 @@ import React from 'react';
 import { List, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 
-export function MovieList({ isSearching, movies }) {
+export function MovieList({ isFetching, isSearching, movies }) {
   return (
     <div className="movie-list">
       <List
         itemLayout="horizontal"
+        loading={isFetching}
         dataSource={isSearching ? movies : []}
         renderItem={item => (
           <List.Item>

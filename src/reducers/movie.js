@@ -13,12 +13,12 @@ export function movieReducer(state = initialState, action) {
             return initialState;
         case T.FETCH_MOVIE_SUCCESS: {
             const newState = [...state];
-            const { imdbID } = action.payload;
-            const movieIndex = state.findIndex(movie => movie.imdbID === imdbID);
-            if (movieIndex > 0) {
-                newState[movieIndex] = action.payload;
+            const newMovie = { ...action.payload, hasDetail: true };
+            const movieIndex = state.findIndex(movie => movie.imdbID === newMovie.imdbID);
+            if (movieIndex > -1) {
+                newState[movieIndex] = newMovie;
             } else {
-                newState.push(action.payload);
+                newState.push(newMovie);
             }
             return newState;
         }

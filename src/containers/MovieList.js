@@ -3,6 +3,7 @@ import { MovieList as MovieListComponent } from '../components/MovieList';
 
 const mapStateToProps = state => {
   return {
+    isFetching: state.ui.isFetching,
     isSearching: !!state.ui.searchText,
     movies: state.movies
   };
