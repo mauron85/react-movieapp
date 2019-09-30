@@ -5,7 +5,7 @@ import { PageHeader, Input, Button } from 'antd';
 import { MovieList } from './containers/MovieList';
 import { searchMovies, searchTextChange } from './actions/movie';
 
-function Search({ isFetching, searchText, errorMessage, onSearch, onTextChange }) {
+function Search({ isFetching, searchText, totalResults, errorMessage, onSearch, onTextChange }) {
 
   const handleSearch = () => {
     onSearch(searchText);
@@ -38,6 +38,7 @@ function Search({ isFetching, searchText, errorMessage, onSearch, onTextChange }
         <Link to="/favourites">Go to your favourites</Link>
         <div className="results">
           {errorMessage}
+          {!!totalResults && <span>Total resuls: {totalResults}</span>}
           <MovieList />
         </div>
       </div>
@@ -46,8 +47,9 @@ function Search({ isFetching, searchText, errorMessage, onSearch, onTextChange }
 }
 
 const mapStateToProps = state => {
-  const { isFetching, searchText, errorMessage } = state.ui;
-  return { isFetching, searchText, errorMessage };
+  const { totalResults, searchText } = state.search;
+  const { isFetching, errorMessage } = state.ui;
+  return { isFetching, searchText, totalResults, errorMessage };
 };
 
 const mapDispatchToProps = dispatch => {

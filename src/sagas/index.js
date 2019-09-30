@@ -4,8 +4,12 @@ import * as Api from '../api';
 
 function* searchMovie(action) {
   try {
-    const response = yield call(Api.searchMovies, action.payload);
-    yield put({ type: T.SEARCH_MOVIES_SUCCESS, payload: response.Search });
+    const { text, page } = action.payload;
+    const { Search, totalResults } = yield call(Api.searchMovies, text, page);
+    yield put({
+      type: T.SEARCH_MOVIES_SUCCESS,
+      payload: { movies: Search, page, totalResults: Number(totalResults) }
+    });
   } catch (e) {
     yield put({ type: T.SEARCH_MOVIES_FAILURE, message: e.message });
   }

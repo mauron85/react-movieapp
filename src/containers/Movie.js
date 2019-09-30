@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Movie as MovieComponent } from '../components/Movie';
 import { fetchMovie, toggleFavourite } from '../actions/movie';
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
       isFavourite: true
     };
   }
-  movie = state.movies.find(movie => movie.imdbID === ownProps.imdbID);
+  movie = state.search.movies.find(movie => movie.imdbID === ownProps.imdbID);
   return {
     ...movie,
     imdbID: ownProps.imdbID,

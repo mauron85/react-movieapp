@@ -1,9 +1,9 @@
 import * as T from './actionTypes';
 
-export function searchMovies(text) {
+export function searchMovies(text, page = 1) {
   return {
     type: T.SEARCH_MOVIES,
-    payload: text
+    payload: { text, page }
   };
 }
 
