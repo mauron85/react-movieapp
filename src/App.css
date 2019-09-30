@@ -1,22 +1,22 @@
+@import '~antd/dist/antd.css';
+
 .App {
-  text-align: center;
+  max-width: 1024px;
+  margin: 0 auto;
+  min-height: 100vh;  
+  background-color: beige;
 }
 
-.App-logo {
-  height: 40vmin;
+.ant-page-body {
+  padding: 0 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.action {
+  margin: 0;
+  padding: 0;
 }
 
-.App-link {
-  color: #09d3ac;
+.action-item {
+  display: inline;
+  margin-right: 15px;
 }
