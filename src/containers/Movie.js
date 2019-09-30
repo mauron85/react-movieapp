@@ -40,7 +40,7 @@ function MovieData({ fetchMovie, ...movie }) {
     }
   });
 
-  return <MovieComponent {...movie}/>;
+  return <MovieComponent {...movie } isFetching={movie.isFetching || !movie.hasDetail}/>;
 }
 
 export const Movie = connect(
